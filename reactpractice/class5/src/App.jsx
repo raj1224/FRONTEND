@@ -1,5 +1,5 @@
 import React from 'react'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import {createBrowserRouter, RouterProvider, NavLink} from 'react-router-dom'
 
 function App() {
   const router = createBrowserRouter([
@@ -14,6 +14,10 @@ function App() {
     {
       path:'/about',
       element:<><Navbar/> <h1>About Page</h1></>
+    },
+    {
+      path:'/contact',
+      element:<><Navbar/> <h1>contact Page</h1></>
     }
     
   ])
@@ -29,11 +33,16 @@ export default App
 function Navbar() {
   return(
     <div>
-      <ul>
+      {/* <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact">contact</a></li>
-      </ul>
+      </ul> */}
+      <nav>
+        <NavLink to={'/'}> <li>Home</li></NavLink>
+        <NavLink to={'/about'}> <li>about</li></NavLink>
+        <NavLink to={'/contact'}> <li>contact</li></NavLink>
+      </nav>
     </div>
   )
 }
