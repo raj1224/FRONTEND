@@ -1,5 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-let age = 21;
+var age = 21;
 console.log(age);
-//# sourceMappingURL=index.js.map
+// day-2
+function greet(username) {
+    return console.log("Hello, ".concat(username));
+}
+greet("Raj");
