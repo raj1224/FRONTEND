@@ -179,3 +179,50 @@ function identity<T>(value: T): T {
 console.log(identity<number>(42));
 console.log(identity<string>("hello"));
 
+// --------------------------------------------
+
+// DAY 4
+
+// 1. Interface
+
+interface User{
+  name: string;
+  age: number;
+  isAdmin ?: boolean;
+}
+const user1:User ={
+  name:"Sigma",
+  age:21,
+  isAdmin:true
+}
+
+// using interfaces with function
+// interface GreetFunction{
+//   (name:string):string;
+// }
+// const greet:GreetFunction=(name)=>{
+//   return `Hello, ${name}`
+// }
+
+// interface StringArray{
+//   [indexe:number]:string;
+// }
+// const names:StringArray=["alpha","beta","gamma"];
+
+interface A {
+  a: string;
+}
+
+interface B {
+  b: number;
+}
+
+interface C extends A, B {
+  c: boolean;
+}
+
+const test: C = {
+  a: "hello",
+  b: 42,
+  c: true,
+};
