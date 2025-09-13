@@ -3,15 +3,15 @@
   "compilerOptions": {
     // File Layout
     // "rootDir": "./src",
-    // "outDir": "./dist",
+    "outDir": "./dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "commonjs",
+    "target": "es2024",
     "types": [],
     // For nodejs:
-    // "lib": ["esnext"],
+    "lib": ["es2024","DOM"],
     // "types": ["node"],
     // and npm install -D @types/node
 
