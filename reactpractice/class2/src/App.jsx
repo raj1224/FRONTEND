@@ -3,8 +3,19 @@ import React, { useEffect, useState } from 'react'
 import Avatar from './module/profile/components/Avatar'
 import InfoCard from './module/profile/components/InfoCard'
 
+const htmlDarkClassName=document.getElementById('mainroot').classList[0];
+
 function App() {
   const [data, setdata] = useState(null);
+  const [darkMode, setDarkMode] = useState(htmlDarkClassName);
+  const onToggleTheme=()=>{
+    setDarkMode(darkMode ==="dark"? "light":"dark");
+    document.getElementById('mainroot').classList.toggle('dark');
+  }
+
+
+  // console.log(htmlDarkClassName);
+  
   
   useEffect(() => {
     async function fetchUserDetails(username) {
@@ -34,7 +45,11 @@ function App() {
   }
   
   return (
-    <main className=' bg-zinc-900 w-full py-24 flex flex-col justify-start items-center min-h-screen h-full'>
+    <main className='bg-amber-50 dark:bg-zinc-900 w-full py-24 flex flex-col justify-start items-center min-h-screen h-full'>
+
+      <button onClick={onToggleTheme} className='cursor-pointer px-4 py-4 h-20 rounded-full border border-zinc-500 text-3xl'>
+        {darkMode==="dark" ? '☀️' : '🌙'}
+      </button>
       <h1 className='text-5xl text-yellow-500 font-extrabold stroke-2'>welcome to your Github Profile 🔥</h1>
       <Avatar 
         // imageUrl={'https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fwww.gravatar.com%2Favatar%2F2c7d99fe281ecd3bcd65ab915bac6dd5%3Fs%3D250'}
