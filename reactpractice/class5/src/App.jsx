@@ -1,48 +1,91 @@
 import React from 'react'
-import {createBrowserRouter, RouterProvider, NavLink} from 'react-router-dom'
+import {createBrowserRouter , RouterProvider, NavLink} from 'react-router-dom'
 
-function App() {
+const App = () => {
+  //
+  // OPTIMIZED
+  // ---------
   const router = createBrowserRouter([
     {
       path: "/",
-      element:  <><Navbar/> <h1>Home Page</h1></>
+      element: (
+        <>
+          <Navbar />
+          <h1>Home Page</h1>
+        </>
+      ),
     },
     {
-      path: "/login",
-      element: <><Navbar/> <h1>Login</h1></>
+      path: "/About",
+      element: (
+        <>
+          <Navbar />
+          <h1>About Page</h1>
+        </>
+      ),
     },
     {
-      path:'/about',
-      element:<><Navbar/> <h1>About Page</h1></>
+      path: "/Contact",
+      element: (
+        <>
+          <Navbar />
+          <h1>Contact Page</h1>
+        </>
+      ),
     },
-    {
-      path:'/contact',
-      element:<><Navbar/> <h1>contact Page</h1></>
-    }
-    
-  ])
+  ]);
+
   return (
     <>
-     <RouterProvider router={router}/>
+    
+      {/* <Navbar/> */}
+    <RouterProvider router={router}/>
     </>
   )
 }
 
 export default App
 
-function Navbar() {
+function Navbar(){
   return(
     <div>
       {/* <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/About">About</a></li>
+        <li><a href="/Contact">Contact</a></li>
       </ul> */}
+
+      {/* <nav>
+        <NavLink to={'/'}>
+        <li>Home</li></NavLink>
+        <NavLink to={'/About'}>
+        <li>About</li></NavLink>
+        <NavLink to={'/Contact'}>
+        <li>Contact</li></NavLink>
+      </nav> */}
+
+      {/* OPTIMIZED */}
+      {/* --------- */}
+
       <nav>
-        <NavLink to={'/'}> <li>Home</li></NavLink>
-        <NavLink to={'/about'}> <li>about</li></NavLink>
-        <NavLink to={'/contact'}> <li>contact</li></NavLink>
-      </nav>
+      <ul style={{ display: "flex", gap: "20px", listStyle: "none" }}>
+        <li>
+          <NavLink to="/" style={({ isActive }) => ({ color: isActive ? "red" : "black" })}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/About" style={({ isActive }) => ({ color: isActive ? "red" : "black" })}>
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/Contact" style={({ isActive }) => ({ color: isActive ? "red" : "black" })}>
+            Contact
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
     </div>
   )
 }
