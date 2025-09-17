@@ -1,10 +1,12 @@
 import React from 'react'
 import Navigation from './components/Navigation'
 import { Routes , Route } from 'react-router-dom'
-import Home from './pages/Home'
-import NotFound from './pages/NotFound'
-import About from './pages/About'
-import Projects from './pages/Projects'
+import Home from './pages/Home.jsx'
+import NotFound from './pages/NotFound.jsx'
+import About from './pages/About.jsx'
+import Projects from './pages/Projects.jsx'
+import ProjectDetail from './pages/ProjectDetail.jsx'
+import Contact from './pages/Contact.jsx'
 
 
 const App = () => {
